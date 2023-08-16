@@ -14,7 +14,7 @@ export const Question: FC<Props> = memo(({question, onChange}) => {
     switch (question.type) {
         case 'choice':
             return <Choice data={question} onChange={onChange} />
-        case  'rating':
+        case 'rating':
             return <Rating data={question} onChange={onChange} />;
         default:
             return null;
