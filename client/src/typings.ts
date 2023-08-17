@@ -20,7 +20,7 @@ export type RatingQuestion = BaseQuestion & {
 
 export type Question = ChoiceQuestion | RatingQuestion;
 
-export type Poll = {
+export type Polls = {
 	id: string;
 	questions: {
 		[id: number]: Question;
