@@ -2,7 +2,7 @@ export type BaseQuestion = {
     id: number;
     label: string;
     type: 'choice' | 'rating';
-}
+};
 
 export type ChoiceQuestion = BaseQuestion & {
     type: 'choice';
@@ -11,27 +11,27 @@ export type ChoiceQuestion = BaseQuestion & {
         id: number;
         label: string;
     }[];
-}
+};
 
 export type RatingQuestion = BaseQuestion & {
     type: 'rating';
     maxValue: number;
-}
+};
 
 export type Question = ChoiceQuestion | RatingQuestion;
 
 export type Poll = {
-	id: string;
-	questions: {
-		[id: number]: Question;
+    id: string;
+    questions: {
+        [id: number]: Question;
     };
 
-	pages: {
-		[id: number]: {
+    pages: {
+        [id: number]: {
             id: number;
-			questions: number[];
-		}
-	}
+            questions: number[];
+        };
+    };
 
-	pageOrder: number[];
+    pageOrder: number[];
 };
