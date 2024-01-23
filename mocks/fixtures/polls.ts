@@ -1,6 +1,40 @@
-import {Poll} from './typings';
+type BaseQuestion = {
+    id: number;
+    label: string;
+    type: 'choice' | 'rating';
+};
 
-const DB: {[id: number]: Poll} = {
+type ChoiceQuestion = BaseQuestion & {
+    type: 'choice';
+    isMulti?: boolean;
+    options: {
+        id: number;
+        label: string;
+    }[];
+};
+
+type RatingQuestion = BaseQuestion & {
+    type: 'rating';
+    maxValue: number;
+};
+
+export type Poll = {
+    id: string;
+    questions: {
+        [id: number]: ChoiceQuestion | RatingQuestion;
+    };
+
+    pages: {
+        [id: number]: {
+            id: number;
+            questions: number[];
+        };
+    };
+
+    pageOrder: number[];
+};
+
+export const POLLS: { [id: number]: Poll } = {
     11: {
         id: '11',
         questions: {
@@ -91,7 +125,7 @@ const DB: {[id: number]: Poll} = {
                 maxValue: 5,
             },
         },
-    
+
         pages: {
             1: {
                 id: 1,
@@ -104,11 +138,9 @@ const DB: {[id: number]: Poll} = {
             3: {
                 id: 3,
                 questions: [5],
-            }
+            },
         },
-    
-        pageOrder: [1, 2, 3],
-    }
-}
 
-export default DB;
+        pageOrder: [1, 2, 3],
+    },
+};
