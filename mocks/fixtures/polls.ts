@@ -34,9 +34,9 @@ export type Poll = {
     pageOrder: number[];
 };
 
-export const POLLS: { [id: number]: Poll } = {
-    11: {
-        id: '11',
+export const POLLS: { [id: string]: Poll } = {
+    abc: {
+        id: 'abc',
         questions: {
             1: {
                 id: 1,

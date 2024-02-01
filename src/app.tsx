@@ -4,7 +4,7 @@ import { Poll } from './components/poll/poll';
 function App() {
     return (
         <Container>
-            <Poll pollID="11" />
+            <Poll pollID="abc" />
         </Container>
     );
 }
