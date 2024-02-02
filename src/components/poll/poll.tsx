@@ -5,5 +5,5 @@ interface PollProps {
 }
 
 export const Poll: FC<PollProps> = memo(({ pollID }: PollProps) => {
-    return <h1>Здесь опрос c id: {pollID}</h1>;
+    return <h1>Опрос c id: {pollID}</h1>;
 });

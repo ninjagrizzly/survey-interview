@@ -1,5 +1,7 @@
 import type { Request, Response } from 'express';
+
 import { POLLS } from '../fixtures/polls';
+import { ANSWER_SCHEMA, FINISH_SCHEMA, STATS_SCHEMA } from '../schemas';
 
 const routes = [
     {
@@ -36,6 +38,16 @@ const routes = [
                             return res.sendStatus(404);
                         }
 
+                        const { error: validationError } =
+                            ANSWER_SCHEMA.validate(req.body, {
+                                convert: false,
+                            });
+
+                        if (validationError) {
+                            res.status(500);
+                            return res.send(validationError.details);
+                        }
+
                         res.sendStatus(200);
                     },
                 },
@@ -58,6 +70,16 @@ const routes = [
                             return res.sendStatus(404);
                         }
 
+                        const { error: validationError } =
+                            FINISH_SCHEMA.validate(req.body, {
+                                convert: false,
+                            });
+
+                        if (validationError) {
+                            res.status(500);
+                            return res.send(validationError.details);
+                        }
+
                         res.sendStatus(200);
                     },
                 },
@@ -78,6 +100,14 @@ const routes = [
 
                         if (!POLLS[slug]) {
                             return res.sendStatus(404);
+                        }
+
+                        const { error: validationError } =
+                            STATS_SCHEMA.validate(req.body, { convert: false });
+
+                        if (validationError) {
+                            res.status(500);
+                            return res.send(validationError.details);
                         }
 
                         res.sendStatus(200);

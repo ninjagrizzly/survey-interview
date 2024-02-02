@@ -4,15 +4,15 @@ module.exports = {
             delay: 100,
         },
         collections: {
-            selected: 'base'
-        }
+            selected: 'base',
+        },
     },
     files: {
         babelRegister: {
             enabled: true,
             options: {
-                presets: ['babel-preset-react-app']
-            }
+                presets: ['babel-preset-react-app'],
+            },
         },
     },
 };
