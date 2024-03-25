@@ -23,12 +23,16 @@
 **Структура репозитория**
 
 ````
-/client
+/src
 	Create React App + Typescript
 	Material UI
+/mocks
+	Моки ручек на основе mocks-server
+````
 
 **Описание эндпоинтов**
 
+````
 - `GET /api/poll/<pollID>`
   - Формат ответа
     ```tsx
